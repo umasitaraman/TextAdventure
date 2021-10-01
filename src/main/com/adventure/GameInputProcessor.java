@@ -2,6 +2,8 @@ package main.com.adventure;
 
 import main.com.adventure.settings.Command;
 
+import java.util.Scanner;
+
 public class GameInputProcessor {
 
     /**
@@ -10,7 +12,9 @@ public class GameInputProcessor {
      */
     public String prompt() {
         System.out.println("Enter your next command:");
-        return "";
+        Scanner sc = new Scanner(System.in);
+        String userInput = sc.nextLine();
+        return userInput;
     }
 
     /**
@@ -20,7 +24,9 @@ public class GameInputProcessor {
      * @return - the Command object with the proper verb and blank object
      */
     private Command buildSimpleCommand(String input) {
-        return new Command("", "");
+        int i = input. indexOf(' ');
+        String verb = input.substring(0, i).trim();
+        return new Command(verb, "");
     }
 
     /**
@@ -30,7 +36,10 @@ public class GameInputProcessor {
      * @return - the Command object with the proper verb and object
      */
     private Command buildCommandWithObject(String input) {
-        return new Command("", "");
+        int i = input. indexOf(' ');
+        String verb = input.substring(0, i).trim();
+        String object = input.substring(i).trim();
+        return new Command(verb, object);
     }
 
 

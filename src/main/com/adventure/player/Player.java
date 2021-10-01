@@ -1,6 +1,7 @@
 package main.com.adventure.player;
 
 import main.com.adventure.settings.AppSettings;
+import main.com.adventure.world.Direction;
 import main.com.adventure.world.objects.Shovel;
 import main.com.adventure.world.objects.Tangible;
 import main.com.adventure.world.objects.Weapon;
@@ -67,6 +68,17 @@ public class Player {
      * @return true if the move is executed. Otherwise, false.
      */
     public boolean move(String direction, boolean isValid) {
+        //int currentLocationIndex = 0;
+        if (isValid) {
+            if (direction.equals(Direction.EAST)) {
+                this.currentLocationIndex += 1;
+            } else if (direction.equals(Direction.WEST)) {
+                this.currentLocationIndex -= 1;
+            }
+        } else {
+            System.out.println(direction + " is not a valid direction");
+            return false;
+        }
         return true;
     }
 
