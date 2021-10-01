@@ -10,6 +10,7 @@ public class Player {
 
     public int level = 5;
     //TODO Add name variable here
+    private String name = "";
     private int currentLocationIndex = AppSettings.getStartingLocation();
     private Key key;
     private Shovel shovel;
@@ -23,7 +24,8 @@ public class Player {
      * @param newName - the player's name that will be saved
      */
     public void setName(String newName) {
-
+        this.name = newName;
+        System.out.println("Your name is now " + this.name);
     }
 
     /**
@@ -33,7 +35,7 @@ public class Player {
      * @return The name of the player
      */
     public String getName() {
-        return null;
+        return this.name;
     }
 
     /**
@@ -43,7 +45,8 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return false;
+
+        return Math.round((double) level / 2) > 2;
     }
 
 
