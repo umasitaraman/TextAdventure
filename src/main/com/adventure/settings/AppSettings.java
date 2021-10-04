@@ -6,7 +6,8 @@ public class AppSettings {
     //public static final Story story =  Story.S1M1_Beginning;
     //public static final Story story =  Story.S1M2_Beginning;
     //public static final Story story =  Story.S2M1_CaveEscape;
-    public static final Story story =  Story.S2M2_TestDirections;
+    //public static final Story story =  Story.S2M2_TestDirections;
+    public static final Story story =  Story.S2M3_HouseAndCave;
     public enum Story {
         TestScene,
 
