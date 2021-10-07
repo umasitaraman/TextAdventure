@@ -22,11 +22,55 @@ public enum CommandVerb {
 
     /**
      * Takes a users input and determines which verb to include in the command.
+     *
      * @param verbString - the users input.
      * @return - the CommandVerb associated with the given input.
      */
     public static CommandVerb getVerb(String verbString) {
-        return INVALID;
-    }
+        CommandVerb action;
 
+        switch (verbString.toUpperCase()) {
+            case "TAKE":
+                //return TAKE;
+                action = TAKE;
+                break;
+            case "MOVE":
+                //return MOVE;
+                action = MOVE;
+                break;
+            case "USE":
+                //return USE;
+                action = USE;
+                break;
+            case "DIG":
+                //return DIG;
+                action = DIG;
+                break;
+            case "EXAMINE":
+                // return EXAMINE;
+                action = EXAMINE;
+                break;
+            case "LOOK":
+                // return LOOK;
+                action = LOOK;
+                break;
+            case "HELP":
+                // return HELP;
+                action = HELP;
+                break;
+            case "FIGHT":
+                //  return FIGHT;
+                action = FIGHT;
+                break;
+            case "INVENTORY":
+                //  return INVENTORY;
+                action = INVENTORY;
+                break;
+            default:
+                // return INVALID;
+                action = INVALID;
+                break;
+        }
+        return action;
+    }
 }

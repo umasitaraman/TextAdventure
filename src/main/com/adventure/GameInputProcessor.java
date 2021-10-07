@@ -1,6 +1,7 @@
 package main.com.adventure;
 
 import main.com.adventure.settings.Command;
+import main.com.adventure.settings.CommandVerb;
 
 import java.util.Scanner;
 
@@ -24,9 +25,8 @@ public class GameInputProcessor {
      * @return - the Command object with the proper verb and blank object
      */
     private Command buildSimpleCommand(String input) {
-        int i = input. indexOf(' ');
-        String verb = input.substring(0, i).trim();
-        return new Command(verb, "");
+        String[] splitInput = input.split(" ");
+        return new Command(CommandVerb.getVerb(splitInput[0]));
     }
 
     /**
@@ -36,10 +36,8 @@ public class GameInputProcessor {
      * @return - the Command object with the proper verb and object
      */
     private Command buildCommandWithObject(String input) {
-        int i = input. indexOf(' ');
-        String verb = input.substring(0, i).trim();
-        String object = input.substring(i).trim();
-        return new Command(verb, object);
+        String[] splitInput = input.split(" ");
+        return new Command(CommandVerb.getVerb(splitInput[0]), splitInput[1]);
     }
 
 
