@@ -123,6 +123,8 @@ public class S3M3Test {
             door.unlock(controlKey);
             //copy the door's new pins
             secondKey.useItem(door);
+            System.out.println(initialKey.pins);
+            System.out.println(secondKey.pins);
             if (initialKey.pins == secondKey.pins) {
                 break;
             }

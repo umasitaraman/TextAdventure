@@ -1,5 +1,4 @@
 package main.com.adventure.player;
-
 import main.com.adventure.world.objects.Tangible;
 
 /**
@@ -17,7 +16,14 @@ public class Backpack {
      * @return - true if the item is added. Otherwise, false.
      */
     public boolean addItem(Tangible item) {
+
         //TODO Complete the function
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null) {
+                items[i] = item;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -28,6 +34,11 @@ public class Backpack {
      */
     public Tangible getItem(String name) {
         //TODO Complete the function
+        for (int i = 0; i < items.length; i++) {
+            if  (items[i] != null && items[i].getName().equals(name)) {
+                return items[i];
+            }
+        }
         return null;
     }
 
@@ -38,6 +49,27 @@ public class Backpack {
      */
     public boolean removeItem(Tangible item) {
         //TODO Complete the function
+        //Tangible[] newItems = new Tangible[items.length];
+        //int rmvIndex = 0;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null && items[i].getName().equalsIgnoreCase(item.getName())) {
+                items[i] = null;
+                return true;
+                //rmvIndex = i;
+            }
+        }
+        /*if (rmvIndex > -1) {
+            for (int i = 0, k = 0; i < items.length; i++) {
+                // check if index is matched, continue without copying
+                if (i == rmvIndex) {
+                    continue;
+                } else {
+                    // else copy the element
+                    newItems[k++] = items[i];
+                }
+            }
+            System.arraycopy(newItems, 0, items, 0, items.length);
+        }*/
         return false;
     }
 
@@ -51,5 +83,11 @@ public class Backpack {
      */
     public void printItems() {
         //TODO Complete the function
+        System.out.println("Here are the items in your backpack:");
+        //for (int i=0;i < items.length; i++) {
+        for (Tangible item : items) {
+            //System.out.println("- " + items[i].getName());
+            System.out.println("- " + item);
+        }
     }
 }

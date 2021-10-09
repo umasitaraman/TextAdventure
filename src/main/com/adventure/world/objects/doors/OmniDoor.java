@@ -1,10 +1,11 @@
 package main.com.adventure.world.objects.doors;
-
 import main.com.adventure.world.objects.Tangible;
 import main.com.adventure.world.objects.keys.Key;
 import main.com.adventure.world.objects.keys.OmniKey;
 
 import java.util.Arrays;
+import java.util.Random;
+
 
 /**
  * The OmniDoor is a door whose lock is a set of 5 pins. Each pin
@@ -35,12 +36,15 @@ public class OmniDoor implements Tangible {
      */
     private final boolean[] pins = new boolean[pinCount];
 
-
     /**
      * Creates an OmniDoor with the default lock (all true).
      */
     public OmniDoor() {
         Arrays.fill(pins, true);
+    }
+
+    public boolean[] getPins() {
+        return pins;
     }
 
     /**
@@ -55,8 +59,27 @@ public class OmniDoor implements Tangible {
      *
      * @param key - the key that will be used to attempt to unlock the door
      */
+
+
     public void unlock(OmniKey key) {
         //TODO Complete the function
+        //Random randPin = new Random();
+        for (int i = 0; i < key.pins.length; i++) {
+            if (key.pins[i] == pins[i]) {
+                //continue;
+                this.isOpen = true;
+                //System.out.println("The door is unlocked!");
+            } else {
+                this.isOpen = false;
+                break;
+            }
+        }
+
+        if (!this.isOpen) {
+            randomizePins();
+        } else {
+            System.out.println("The door is unlocked!");
+        }
     }
 
     /**
@@ -75,7 +98,12 @@ public class OmniDoor implements Tangible {
      */
     public int getFirstWrongPin(OmniKey key) {
         //TODO Complete the function
-        return 0;
+        for (int i = 0; i < key.pins.length; i++) {
+            if (pins[i] != key.pins[i]) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     //Tangible implementation//
@@ -115,5 +143,11 @@ public class OmniDoor implements Tangible {
     @Override
     public void use() {
 
+    }
+    private void randomizePins() {
+        Random random = new Random();
+        for (int i = 0; i < pins.length; i++) {
+            pins[i] = random.nextBoolean();
+        }
     }
 }

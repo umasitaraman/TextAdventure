@@ -13,8 +13,9 @@ public class Player {
     //TODO Add name variable here
     private String name = "";
     private int currentLocationIndex = AppSettings.getStartingLocation();
-    private Key key;
-    private Shovel shovel;
+    //private Key key;
+    //private Shovel shovel;
+    private Backpack backpack = new Backpack();
     private int power = 1;
     private int health = 10;
 
@@ -99,7 +100,7 @@ public class Player {
      */
     public Tangible getItem(String itemName) {
         //TODO Complete this function in Sprint 3 Module 3
-        return null;
+        return backpack.getItem(itemName);
     }
 
     /**
@@ -110,7 +111,7 @@ public class Player {
      */
     public boolean removeItem(Tangible item) {
         //TODO Complete this function in Sprint 3 Module 3
-        return false;
+        return backpack.removeItem(item);
     }
 
     /**
@@ -119,6 +120,7 @@ public class Player {
      */
     public void printItems() {
         //TODO Complete this function in Sprint 3 Module 3
+        backpack.printItems();
     }
 
     /**
@@ -128,22 +130,35 @@ public class Player {
      */
     public void addItem(Tangible item) {
         //TODO Complete this function
+        backpack.addItem(item);
     }
 
+    /**
+     *
+     * @param item Set the value of the item added to the backpack using this paramaeter
+     */
     public void setKey(Key item) {
-        key = item;
+        backpack.addItem(item);
     }
 
+    /**
+     *
+     * @return return  the item found in the backpack
+     */
     public Key getKey() {
-        return key;
+        return (Key) backpack.getItem("Key");
     }
 
+    /**
+     *
+     * @param item sets the value of the item added to the backpack as shovel
+     */
     public void setShovel(Shovel item) {
-        shovel = item;
+        backpack.addItem(item);
     }
 
     public Shovel getShovel() {
-        return shovel;
+        return (Shovel) backpack.getItem("Shovel");
     }
 
     //////// DON'T CHANGE THE CODE BELOW. ///////////
