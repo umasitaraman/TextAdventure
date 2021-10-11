@@ -26,9 +26,11 @@ public enum CommandVerb {
      * @param verbString - the users input.
      * @return - the CommandVerb associated with the given input.
      */
-    public static CommandVerb getVerb(String verbString) {
+    public static CommandVerb getVerb(String verbString) throws InvalidCommandException, EmptyCommandException {
+        if (verbString == null) {
+            throw new EmptyCommandException();
+        }
         CommandVerb action;
-
         switch (verbString.toUpperCase()) {
             case "TAKE":
                 //return TAKE;
@@ -67,9 +69,7 @@ public enum CommandVerb {
                 action = INVENTORY;
                 break;
             default:
-                // return INVALID;
-                action = INVALID;
-                break;
+                throw new InvalidCommandException();
         }
         return action;
     }
