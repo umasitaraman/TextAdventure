@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adventure.sprint3.S3M4Test" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-10-12T12:50:17" hostname="KrishnarthysAir" time="0.076">
+  <properties/>
+  <testcase name="testNullVerbException()" classname="com.adventure.sprint3.S3M4Test" time="0.069"/>
+  <testcase name="testInvalidVerbException()" classname="com.adventure.sprint3.S3M4Test" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

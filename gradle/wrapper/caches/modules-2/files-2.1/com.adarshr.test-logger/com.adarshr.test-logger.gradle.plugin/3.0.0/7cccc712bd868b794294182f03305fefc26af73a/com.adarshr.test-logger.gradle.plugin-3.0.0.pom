@@ -1,0 +1,14 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.adarshr.test-logger</groupId>
+      <artifactId>com.adarshr.test-logger.gradle.plugin</artifactId>
+      <version>3.0.0</version>
+      <packaging>pom</packaging>
+      <dependencies>
+        <dependency>
+          <groupId>com.adarshr</groupId>
+          <artifactId>gradle-test-logger-plugin</artifactId>
+          <version>3.0.0</version>
+        </dependency>
+      </dependencies>
+    </project>

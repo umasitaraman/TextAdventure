@@ -42,8 +42,6 @@ public class SceneDescriptionFileReader {
             sceneDescription = sceneDescription.concat(strCurrentLine).concat("\n");
         }
         return sceneDescription;
-        //remove this line
-        //throw new IOException();
     }
 
     ////// DO NOT CHANGE ANYTHING BELOW THIS LINE /////
